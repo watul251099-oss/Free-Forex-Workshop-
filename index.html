@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOREX Trading Workshop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: #fdbb2d;
+            font-weight: 300;
+        }
+        
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+        }
+        
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .workshop-image {
+            width: 100%;
+            display: block;
+        }
+        
+        /* Invisible clickable area at bottom */
+        .registration-area {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 10;
+            background: transparent;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .registration-area:hover {
+            background: rgba(253, 187, 45, 0.2);
+        }
+        
+        .registration-area:hover::after {
+            content: "Click to Register";
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(253, 187, 45, 0.9);
+            color: #1a2a6c;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        .details {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 25px;
+        }
+        
+        .details h2 {
+            color: #fdbb2d;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+        
+        .topics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .topic {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #fdbb2d;
+        }
+        
+        .topic h3 {
+            color: #fdbb2d;
+            margin-bottom: 8px;
+        }
+        
+        .topic p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .cta {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #fdbb2d;
+            color: #1a2a6c;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button:hover {
+            background: #ffcc44;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .registration-area {
+                width: 300px;
+                height: 35px;
+                bottom: 4%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .registration-area {
+                width: 250px;
+                height: 30px;
+                bottom: 3%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>FOREX Trading Workshop</h1>
+            <p class="subtitle">Master the Art of Currency Trading</p>
+        </header>
+        
+        <div class="content">
+            <div class="image-container">
+                <!-- This is a representation of your image -->
+                <div class="workshop-image" style="
+                    background: linear-gradient(135deg, #0f1b3a, #1e3a8a);
+                    color: white;
+                    padding: 40px;
+                    height: 600px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    text-align: center;
+                ">
+                    <div>
+                        <h2 style="font-size: 3rem; margin-bottom: 10px; color: #fdbb2d;">FOREX</h2>
+                        <h3 style="font-size: 2.5rem; margin-bottom: 5px;">TRADING</h3>
+                        <h3 style="font-size: 2.5rem;">WORKSHOP</h3>
+                    </div>
+                    
+                    <div style="margin: 30px 0;">
+                        <h4 style="font-size: 1.8rem; margin-bottom: 20px; color: #fdbb2d;">WORKSHOP OUTLINE</h4>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; max-width: 500px; margin: 0 auto;">
+                            <div>TRADING BASICS</div>
+                            <div>TECHNICAL ANALYSIS</div>
+                            <div>FUNDAMENTAL ANALYSIS</div>
+                            <div>TRADING STRATEGIES</div>
+                            <div>PSYCHOLOGY OF TRADING</div>
+                            <div>MONEY MANAGEMENT</div>
+                            <div style="grid-column: 1 / -1; text-align: center; margin-top: 10px;">& MUCH MORE</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <p style="font-size: 1.2rem; color: #fdbb2d;">Click Below Mentioned Link For Registration</p>
+                    </div>
+                    
+                    <!-- Invisible clickable area -->
+                    <a href="https://forms.gle/RZuWcgRetWRz1ZHt8" target="_blank" class="registration-area"></a>
+                </div>
+            </div>
+            
+            <div class="details">
+                <h2>What You'll Learn</h2>
+                <div class="topics">
+                    <div class="topic">
+                        <h3>Trading Basics</h3>
+                        <p>Understand the fundamentals of Forex trading, terminology, and market mechanics.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>Technical Analysis</h3>
+                        <p>Learn to read charts, identify trends, and use technical indicators effectively.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>Fundamental Analysis</h3>
+                        <p>Discover how economic indicators and news events impact currency values.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>Trading Psychology</h3>
+                        <p>Master the mental aspects of trading to maintain discipline and emotional control.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta">
+                <a href="https://forms.gle/RZuWcgRetWRz1ZHt8" target="_blank" class="cta-button">Register Now</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>FOREX Trading Workshop &copy; 2023 | All Rights Reserved</p>
+        </footer>
+    </div>
+</body>
+</html>
